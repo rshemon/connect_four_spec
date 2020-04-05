@@ -30,7 +30,7 @@ class ConnectFour
     end
   end
 
-  #method to check for valid input and to set piece on board
+  #method to check for valid user input and to set piece on board
   def put_piece(player,col)
     #check for valid user input
     if !col.between?(1,7)
@@ -184,8 +184,9 @@ class ConnectFour
 
 end
 
+#this method cycles through player turn
 def set_player(turn)
-  if turn % 2 == 0  #this block cycles through player turn
+  if turn % 2 == 0
     return "X"
   end
 
@@ -211,9 +212,9 @@ def play_game(game)
     break if game.status != 'inPlay' or turnCount == 42
   end
 
-  game.post_game_messages(player)
+  game.post_game_messages(player) #display final game status
 
 end
 
 game = ConnectFour.new
-#play_game(game)
+play_game(game)
